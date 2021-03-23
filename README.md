@@ -61,9 +61,13 @@ url-loader:解析文件(比file-loader更高级，在file-loader的基础上，�
 ```
 
 ### babel
+可以配置.babelrc 内部配置为json格式
 
 @babel/core : 核心包
 @babel/preset-env : 语法包(包含大部分ES6)
+@babel/plugin-proposal-class-properties : 使用更高级的语法
+@babel/polyfill : polyfill
+
 
 ### 问题
 

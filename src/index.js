@@ -5,3 +5,7 @@ let a = ()=>{
 }
 
 a()
+
+class Dog{
+    name = 'dahuang'
+}

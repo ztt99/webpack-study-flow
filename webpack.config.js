@@ -30,6 +30,16 @@ module.exports = {
                         name:'[name]-[hash:4].[ext]'
                     }
                 }
+            },
+            {
+                test:/\.js$/,
+                use:{
+                    loader:'babel-loader',
+                    options:{
+                        presets:['@babel/env'], //语法预设
+                        plugins:['@babel/plugin-proposal-class-properties'] //使用更高级的语法
+                    }
+                }
             }
         ]
     },
