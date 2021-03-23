@@ -40,6 +40,30 @@ css-loader:解析css文件
 style-loader:将解析的css加入到页面中
 less-loader:将less转为css
 
+file-loader:解析文件
+url-loader:解析文件(比file-loader更高级，在file-loader的基础上，小的图片会转为base64,base64会比原图大30%)
+
+
+### 指定图片打包到根目录
+
+```js
+{
+    test:/\.(gif)$/,
+    use:{
+        loader:'url-loader',
+        options:{
+            limit:5 * 1024,
+            outputPath:'images',
+            name:'[name]-[hash:4].[ext]'
+        }
+    }
+}
+```
+
+### babel
+
+@babel/core : 核心包
+@babel/preset-env : 语法包(包含大部分ES6)
 
 ### 问题
 
