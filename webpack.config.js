@@ -1,5 +1,8 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const BannerPlugin = require('webpack').BannerPlugin
 module.exports = {
     entry:'./src/index.js',
     output:{
@@ -40,14 +43,26 @@ module.exports = {
                         plugins:['@babel/plugin-proposal-class-properties'] //使用更高级的语法
                     }
                 }
+            },
+            {
+                test:/\.(html|htm)$/i,
+                loader:'html-withimg-loader'
             }
         ]
     },
     plugins:[
+        // new CopyWebpackPlugin([
+        //     {
+        //         from:path.resolve('assetes'),
+        //         to:'assetes'
+        //     }
+        // ]),
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             filename:'index.html',
             template:'./src/index.html'
-        })
+        }),
+        new BannerPlugin('张婷')
     ]
     
 }

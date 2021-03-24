@@ -22,8 +22,11 @@ npm i webpack webpack-cli -D
 
 ```js
 obj.watch = true //启动watch
+devtool:'cheap-module-eval-source-map'
 
 ```
+> source-map
+
 
 > webpack-dev-server
 
