@@ -3,11 +3,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const BannerPlugin = require('webpack').BannerPlugin
+
 module.exports = {
-    entry:'./src/index.js',
+    entry:{
+        index:'./src/index.js',
+        other:'./src/other.js'
+    },
     output:{
         path:path.join(__dirname,'./dist/'),
-        filename:'bundle.js'
+        filename:'[name].js'
     },
     mode:'development',
     // watch:true, //启动监听
@@ -60,7 +64,13 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             filename:'index.html',
-            template:'./src/index.html'
+            template:'./src/index.html',
+            chunks:['index'],
+        }),
+        new HtmlWebpackPlugin({
+            filename:'other.html',
+            template:'./src/other.html',
+            chunks:['other']
         }),
         new BannerPlugin('张婷')
     ]
