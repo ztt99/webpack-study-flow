@@ -2,7 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const BannerPlugin = require('webpack').BannerPlugin
+const webpack = require('webpack')
 
 module.exports = {
     entry:{
@@ -51,7 +51,16 @@ module.exports = {
             {
                 test:/\.(html|htm)$/i,
                 loader:'html-withimg-loader'
-            }
+            },
+            // {
+            //     // require.resolve用于解析jquery模块的绝对路径
+            //     test:require.resolve('jquery'),
+            //     use:{
+            //         loader:'expose-loader',
+            //         options:'$'
+            //     }
+            // }
+
         ]
     },
     plugins:[
@@ -72,7 +81,11 @@ module.exports = {
             template:'./src/other.html',
             chunks:['other']
         }),
-        new BannerPlugin('张婷')
+        new webpack.BannerPlugin('张婷'),
+        new webpack.ProvidePlugin({
+            $:'jquery',
+            jQuery:'jquery'
+        })
     ]
     
 }
