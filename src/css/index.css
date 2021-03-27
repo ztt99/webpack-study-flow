@@ -1,4 +1,6 @@
 body{
     background-color: pink;
     /* background: url('../assetes/1.gif'); */
+    display: flex;
+    transform: rotate(-180deg);
 }

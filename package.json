@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server",
-    "build": "webpack"
+    "dev": "webpack-dev-server --config ./config/webpack.dev.js",
+    "build": "webpack",
+    "build:server": "webpack --config ./config/webpack.prod.js",
+    "build:dev": "webpack --config ./config/webpack.dev.js"
   },
   "repository": {
     "type": "git",
@@ -31,13 +33,17 @@
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^4.5.2",
     "html-withimg-loader": "^0.1.16",
+    "mini-css-extract-plugin": "^1.4.0",
     "style-loader": "^2.0.0",
     "url-loader": "^4.1.1",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^4.2.2"
   },
   "dependencies": {
-    "jquery": "^3.6.0"
+    "autoprefixer": "^10.2.5",
+    "jquery": "^3.6.0",
+    "postcss-loader": "^4.2.0"
   }
 }
