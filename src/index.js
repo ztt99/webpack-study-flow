@@ -1,1 +1,2 @@
-const test = require('./test.js')
+import name ,{age} from './test'
+console.log(name,age);

@@ -1,5 +1,4 @@
-export const name = 'zs'
-
-export default {
-    name:122
+module.exports = {
+    name:'zs',
+    age:'20'
 }

@@ -1,3 +1,9 @@
+/**
+ * 
+ * @param {*} exports 
+ * es6导出 common导入
+ */
+
 // define __esModule on exports 标记es6导出
 __webpack_require__.r = function(exports) {
     if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
