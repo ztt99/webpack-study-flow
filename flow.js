@@ -1,8 +1,10 @@
 const path = require('path')
 const fs = require('fs')
+const SyncHook = require('./tapable')
 class Compiler {
     constructor(config){
         this.config = config
+        this.hook = new SyncHook()
     }
     run(){
         let entries  = [] //放所有的入口 默认情况下一个入口会对应一个代码块chunks
@@ -31,6 +33,7 @@ class Compiler {
         for(let chunk of chunks){
             assets[chunk.name + '.js'] = '"我是文件内容"'
         }
+        this.hook.call(assets)
         files = Object.keys(assets) //写入硬盘的文件名数组
         for(let key in assets){
             let filePath = path.join(this.config.output.path,key)

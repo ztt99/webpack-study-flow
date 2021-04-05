@@ -1,7 +1,10 @@
 
-class SelfPlugin{
-    apply(compiler){
+class SelfPlugin {
+    apply(compiler) {
         console.log('SelfPlugin');
+        compiler.hook.tap('name', (assets) => {
+            console.log(assets);
+        })
     }
 }
 
